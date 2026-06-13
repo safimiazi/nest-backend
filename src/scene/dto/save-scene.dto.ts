@@ -2,6 +2,7 @@ import { Type } from 'class-transformer';
 import {
   IsArray,
   IsNumber,
+  IsOptional,
   IsString,
   ValidateNested,
 } from 'class-validator';
@@ -27,6 +28,10 @@ export class SceneObjectDto {
   @ValidateNested()
   @Type(() => PositionDto)
   position: PositionDto;
+
+  @IsOptional()
+  @IsNumber()
+  scale?: number;
 }
 
 export class SaveSceneDto {
