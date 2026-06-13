@@ -14,6 +14,7 @@ export interface SceneObjectEntry {
   instanceId: string;
   type: string;
   position: SceneObjectPosition;
+  scale?: number;
 }
 
 const PositionSchema = new mongoose.Schema(
@@ -22,7 +23,7 @@ const PositionSchema = new mongoose.Schema(
 );
 
 const SceneObjectSchema = new mongoose.Schema(
-  { instanceId: String, type: String, position: PositionSchema },
+  { instanceId: String, type: String, position: PositionSchema, scale: { type: Number, default: 1 } },
   { _id: false },
 );
 
